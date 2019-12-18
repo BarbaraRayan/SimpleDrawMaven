@@ -1,4 +1,4 @@
-package simpledraw;
+package Controller;
 
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -6,26 +6,30 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import View.DrawingPanel;
+import View.ShapeView;
 
 /**
  * A Drawing tool in the drawing panel
  */
 
 public abstract class DrawingTool
-	implements KeyListener, MouseListener, MouseMotionListener {
+	implements KeyListener, MouseListener, MouseMotionListener{
 	DrawingPanel myPanel;
         Drawing myDrawing;
+        ShapeView view;
 
 	DrawingTool(DrawingPanel panel) {
 		myPanel = panel;
-                myDrawing = panel.myDrawing;
+                myDrawing = panel.getDrawing();
+                view = new ShapeView(panel);
 	}
 
 	/**
 	 * Draws this tool in the panel
 	 * @param g the graphics context to draw into
 	 */
-	abstract void draw(Graphics2D g);
+	public abstract void draw(Graphics2D g);
 
 	public void keyTyped(KeyEvent e) {
 	}
@@ -57,4 +61,5 @@ public abstract class DrawingTool
 
 	public void mouseMoved(MouseEvent e) {
 	}
+       
 }

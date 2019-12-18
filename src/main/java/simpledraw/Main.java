@@ -1,43 +1,25 @@
 package simpledraw;
 
-/*
-Enoncé de l'exercice :
+import Controller.MainFrameController;
 
-Refactoriser ce programme de manière à utiliser :
+//Il y a problème d affichage pour mon MVC, à côté du boutton Select 
+//se trouve bien Line et Cercle mais ils sont invisibles. Ils apparaissent 
+//une fois qu on clique sur le lieu où ils doivent se trouver.  De même pour 
+//le texte qui compte le nombre de lignes et de cercles, il y a 
+//besoin de re-cliquer sur l un des bouton afin de les mettre à jours.
 
-Le Design Pattern Composite :
-	Permettre l'implémentation du grouper / dégrouper :
-		Manipuler (déplacer / supprimer) un groupe de formes
-		comme une forme unique.
-Le Design Pattern MVC
-	Permettre de visualiser le dessin de différentes manières
-		ex: niveaux de zoom différents dans différentes fenêtres
-		ex: une vue qui affiche: "Il y 3 cercles et 2 lignes dans le dessin
 
-Le Design Pattern Visitor
-	Permettre (par exemple) la sauvegarde du dessin en XML, JSON...
-
-La seule fonctionnalité à rajouter est le grouper / dégrouper
-
-Rendu attendu :
-	Modèle UML mis à jour mettant en évidence les design patterns utilisés
-	Implémentation sous la forme d'un projet NetBeans
-	Explications sur l'usage des design patterns
-		Comment ils permettraient d'ajoute des nouvelles vues, d'implémenter la sauvegarde...
-
-*/
 public class Main {
-	/**Construct the application*/
-	public Main() {
-		MainFrame frame = new MainFrame();
-		frame.validate();
-		frame.setVisible(true);
-		System.out.println(this.getClass().equals(super.getClass()));
 
-	}
+    public Main() {
+        MainFrameController frame = new MainFrameController();
+        frame.getFrame().validate();
+        frame.getFrame().setVisible(true);
+        System.out.println(this.getClass().equals(super.getClass()));
 
-	/**Main method*/
-	public static void main(String[] args) {
-		new Main();
-	}
+    }
+
+    public static void main(String[] args) {
+        new Main();
+    }
 }
